@@ -41,7 +41,7 @@
 						<!-- Environment Parameter -->
 						<environment>DEV</environment>
 						<applicationName>${cloudhub.app}</applicationName>
-						<businessGroup>${cloudhub.bg}</businessGroup>
+						<businessGroup>Mulesoft\Mythical Retail</businessGroup>
 						<workerType>Micro</workerType>
 					</cloudHubDeployment>
 				</configuration>
