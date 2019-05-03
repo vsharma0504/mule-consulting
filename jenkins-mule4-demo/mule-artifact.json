@@ -1,7 +1,4 @@
 {
-  "minMuleVersion": "4.1.3",
-  "anypoint": {
-  	"username": "venkat_sharma12",
-  	"password": "Tibco123"
-  }
+  "minMuleVersion": "4.1.3"
+ 
 }
