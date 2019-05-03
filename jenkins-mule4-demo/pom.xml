@@ -36,8 +36,8 @@
 						<uri>https://anypoint.mulesoft.com</uri>
 						<muleVersion>4.1.3</muleVersion>
 						<!-- Deploy User Parameter -->
-						<username>${anypoint.username}</username>
-						<password>${anypoint.password}</password>
+						<username>venkat_sharma12</username>
+						<password>Tibco123</password>
 						<!-- Environment Parameter -->
 						<environment>DEV</environment>
 						<applicationName>${cloudhub.app}</applicationName>
