@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<db:config name="Database_Config" doc:name="Database Config" doc:id="d3c81ad2-4171-4e45-82ff-afc8527be10f" >
+		<db:my-sql-connection host="mysql.shared.demos.mulesoft.com" port="3306" user="mule" password="Mule1379" database="PALIG" />
+	</db:config>
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="2c26bf0a-531d-478b-a029-2915d2769362" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="jenkins-mule-demoFlow" doc:id="a3cf7bee-4d7e-4939-9ba6-c979649e6e52" >
+		<http:listener doc:name="Listener" doc:id="fc137586-986a-490d-b62c-9d7dc7de4dd4" config-ref="HTTP_Listener_config" path="/providers"/>
+		<db:select doc:id="4e954f61-443b-4935-8106-683ee2bec3e5" doc:name="Providers" config-ref="Database_Config">
+			<db:sql >SELECT * from MedicalProvider</db:sql>
+		</db:select>
+		<ee:transform doc:name="Transform Message" doc:id="1badd473-4589-4c94-88ad-9493785af577" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>
