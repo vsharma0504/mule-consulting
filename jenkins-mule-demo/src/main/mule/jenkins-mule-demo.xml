@@ -18,6 +18,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 			<db:sql >SELECT * from MedicalProvider</db:sql>
 		</db:select>
 		<ee:transform doc:name="Transform Message" doc:id="1badd473-4589-4c94-88ad-9493785af577" >
+		
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
 output application/json
