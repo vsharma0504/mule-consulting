@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="json" format="json">
+      <types:shape format="weave" example="examples/patients.json"><![CDATA[%dw 2.0
+type json = {|
+  resourceType: String, 
+  address: Array<{|
+    city: String, 
+    country: String, 
+    line: Array<String>, 
+    postalCode: String, 
+    state: String
+  |}>, 
+  birthDate: String, 
+  careProvider: Array<{| reference: String |}>, 
+  gender: String, 
+  name: Array<{|
+    use: String, 
+    family: Array<String>, 
+    given: Array<String>
+  |}>, 
+  telecom: Array<{|
+    system: String, 
+    use: String, 
+    value: String
+  |}>
+|} {"MetadataFormat": "json",
+"example": "{\"resourceType\":\"Patient\",\"address\":[{\"city\":\"San Francisco\",\"country\":\"United States of America\",\"line\":[\"499 Folsom Street\"],\"postalCode\":\"90354\",\"state\":\"California\"}],\"birthDate\":\"1970-02-12\",\"careProvider\":[{\"reference\":\"Practitioner\/1\"}],\"gender\":\"male\",\"name\":[{\"use\":\"official\",\"family\":[\"Radonctest\"],\"given\":[\"Veera\"]}],\"telecom\":[{\"system\":\"phone\",\"use\":\"home\",\"value\":\"608-999-9005\"}]}"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#d228aae3-29ac-4d0a-97b4-6f6b40d3dc07">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="json"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>

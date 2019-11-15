@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>hl7-schemas</artifactId>
+  <packaging>jar</packaging>
+  <name>Mule HL7 EDI Schemas</name>
+
+  <parent>
+    <groupId>com.mulesoft.connectors</groupId>
+    <artifactId>mule-hl7-parent</artifactId>
+    <version>4.0.0</version>
+    <relativePath>..</relativePath>
+  </parent>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.mule.edi</groupId>
+      <artifactId>edi-parser</artifactId>
+      <version>${edi-parser.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-compiler</artifactId>
+      <version>${scala.version}</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+      <version>${scala.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>net.alchim31.maven</groupId>
+        <artifactId>scala-maven-plugin</artifactId>
+        <version>3.2.0</version>
+        <executions>
+          <execution>
+            <id>scala-compile-first</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>add-source</goal>
+              <goal>compile</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>build-hl7-schemas</id>
+            <phase>prepare-package</phase>
+            <configuration>
+              <source>${jdk.version}</source>
+              <target>${jdk.version}</target>
+              <launchers>
+                <launcher>
+                  <!-- <mainClass>com.mulesoft.flatfile.schema.convert.HL7TablesConverter</mainClass>  -->
+                  <mainClass>com.mulesoft.flatfile.schema.convert.ConvertBoth</mainClass>
+                  <args>
+                    <arg>${basedir}/src/main/build-resources/hl7</arg>
+                    <!-- add generated schemas to the classes directory for building the jar. -->
+                    <arg>${project.build.directory}/classes/hl7</arg>
+                  </args>
+                  <jvmArgs>
+                    <jvmArg>-Xms256m</jvmArg>
+                    <jvmArg>-Xmx256m</jvmArg>
+                  </jvmArgs>
+                </launcher>
+              </launchers>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <id>remove-converter-code</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+            <configuration>
+              <excludeDefaultDirectories>true</excludeDefaultDirectories>
+              <filesets>
+                <fileset>
+                  <directory>${project.build.directory}/classes/com/mulesoft/flatfile/schema/convert</directory>
+                </fileset>
+              </filesets>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

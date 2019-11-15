@@ -1,0 +1,233 @@
+{
+  "resourceType": "Bundle",
+  "id": "a3240e88-b3eb-4cda-a278-3c3fd16af6bb",
+  "meta": {
+    "lastUpdated": "2018-11-15T21:47:19.981+00:00"
+  },
+  "type": "searchset",
+  "total": 4,
+  "link": [
+    {
+      "relation": "self",
+      "url": "http://hapi.fhir.org/baseDstu3/Schedule?_pretty=true"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "http://hapi.fhir.org/baseDstu3/Schedule/24338",
+      "resource": {
+        "resourceType": "Schedule",
+        "id": "24338",
+        "meta": {
+          "versionId": "3",
+          "lastUpdated": "2018-11-13T15:33:30.891+00:00",
+          "profile": [
+            "http://fhir.nhs.uk/DSTU3/StructureDefinition/UEC-PoC-Schedule-1"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://example.org/identifier/schedule",
+            "value": "1"
+          }
+        ],
+        "actor": [
+          {
+            "reference": "HealthcareService/24337"
+          },
+          {
+            "reference": "Practitioner/456876"
+          },
+          {
+            "reference": "PractitionerRole/464135"
+          }
+        ]
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "http://hapi.fhir.org/baseDstu3/Schedule/364708",
+      "resource": {
+        "resourceType": "Schedule",
+        "id": "364708",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2018-10-29T13:28:08.882+00:00",
+          "profile": [
+            "http://hn.indra.es/fhir/StructureDefinition/ScheduleExtended"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hn.indra.es/fhir/StructureDefinition/SubNetwork",
+            "valueReference": {
+              "reference": "Organization/364464"
+            }
+          },
+          {
+            "url": "http://hn.indra.es/fhir/StructureDefinition/Center",
+            "valueReference": {
+              "reference": "Organization/364483"
+            }
+          },
+          {
+            "url": "http://hn.indra.es/fhir/StructureDefinition/MaxAppointmentsMonth",
+            "valueUnsignedInt": 5
+          },
+          {
+            "url": "http://hn.indra.es/fhir/StructureDefinition/MaxAppointmentsDay",
+            "valueUnsignedInt": 2
+          },
+          {
+            "url": "http://hn.indra.es/fhir/StructureDefinition/MinIntervalDay",
+            "valueUnsignedInt": 1
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://hn.indra.es/fhir/StructureDefinition/ScheduleExtended",
+            "value": "HCUBOS Agenda"
+          }
+        ],
+        "serviceType": [
+          {
+            "coding": [
+              {
+                "system": "https://www.hl7.org/fhir/valueset-service-type.html",
+                "code": "124",
+                "display": "General Practice"
+              }
+            ],
+            "text": "General Practice/GP (doctor)"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "https://www.hl7.org/fhir/valueset-c80-practice-codes.html",
+                "code": "394814009",
+                "display": "General practice"
+              }
+            ],
+            "text": "General practice"
+          }
+        ],
+        "actor": [
+          {
+            "reference": "Practitioner/364693"
+          }
+        ]
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "http://hapi.fhir.org/baseDstu3/Schedule/360806",
+      "resource": {
+        "resourceType": "Schedule",
+        "id": "360806",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2018-10-29T10:56:10.761+00:00",
+          "profile": [
+            "http://hn.indra.es/fhir/StructureDefinition/ScheduleExtended"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hn.indra.es/fhir/StructureDefinition/SubNetwork",
+            "valueReference": {
+              "reference": "Organization/SUBRED_ID"
+            }
+          },
+          {
+            "url": "http://hn.indra.es/fhir/StructureDefinition/Center",
+            "valueReference": {
+              "reference": "Organization/CENTER_ID"
+            }
+          },
+          {
+            "url": "http://hn.indra.es/fhir/StructureDefinition/MaxAppointmentsMonth",
+            "valueUnsignedInt": 200
+          },
+          {
+            "url": "http://hn.indra.es/fhir/StructureDefinition/MaxAppointmentsDay",
+            "valueUnsignedInt": 20
+          },
+          {
+            "url": "http://hn.indra.es/fhir/StructureDefinition/MinIntervalDay",
+            "valueUnsignedInt": 5
+          }
+        ],
+        "identifier": [
+          {
+            "system": "System_Identifier",
+            "value": "Value_Identifier"
+          }
+        ],
+        "serviceType": [
+          {
+            "coding": [
+              {
+                "system": "Sys_ODON_ServiceType",
+                "code": "Code_ODON_ServiceType",
+                "display": "Dplay_ODON_ServiceType"
+              }
+            ],
+            "text": "ServiceType"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "Sys_ODON_Specialty",
+                "code": "Code_ODON_Specialty",
+                "display": "Dplay_ODON_Specialty"
+              }
+            ],
+            "text": "Specialty"
+          }
+        ],
+        "actor": [
+          {
+            "id": "Practitioner/PRACTITIONER_ID"
+          }
+        ]
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "http://hapi.fhir.org/baseDstu3/Schedule/272563",
+      "resource": {
+        "resourceType": "Schedule",
+        "id": "272563",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2018-10-20T19:26:54.630+00:00"
+        },
+        "active": true,
+        "actor": [
+          {
+            "reference": "Practitioner/272562",
+            "display": "Dr Bob"
+          }
+        ],
+        "planningHorizon": {
+          "start": "2018-10-08T00:00:00Z",
+          "end": "2018-10-12T17:00:00Z"
+        },
+        "comment": "This is Dr. Bobs schedule for the week of October 8th, 2018"
+      },
+      "search": {
+        "mode": "match"
+      }
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "version": "1.0.0",
+  "artifactCoordinates": {
+    "groupId": "com.mulesoft.connectors",
+    "artifactId": "mule-hl7-extension",
+    "version": "4.0.0",
+    "type": "jar",
+    "classifier": "mule-plugin"
+  },
+  "dependencies": [
+    {
+      "artifactCoordinates": {
+        "groupId": "org.mule.edi",
+        "artifactId": "edi-parser",
+        "version": "2.1.1",
+        "type": "jar"
+      },
+      "uri": "repository/org/mule/edi/edi-parser/2.1.1/edi-parser-2.1.1.jar"
+    },
+    {
+      "artifactCoordinates": {
+        "groupId": "org.mule.edi",
+        "artifactId": "ltm-datamodel",
+        "version": "2.1.1",
+        "type": "jar"
+      },
+      "uri": "repository/org/mule/edi/ltm-datamodel/2.1.1/ltm-datamodel-2.1.1.jar"
+    },
+    {
+      "artifactCoordinates": {
+        "groupId": "log4j",
+        "artifactId": "log4j",
+        "version": "1.2.17",
+        "type": "jar"
+      },
+      "uri": "repository/log4j/log4j/1.2.17/log4j-1.2.17.jar"
+    },
+    {
+      "artifactCoordinates": {
+        "groupId": "org.scala-lang",
+        "artifactId": "scala-reflect",
+        "version": "2.12.0",
+        "type": "jar"
+      },
+      "uri": "repository/org/scala-lang/scala-reflect/2.12.0/scala-reflect-2.12.0.jar"
+    },
+    {
+      "artifactCoordinates": {
+        "groupId": "org.scala-lang.modules",
+        "artifactId": "scala-xml_2.12",
+        "version": "1.0.5",
+        "type": "jar"
+      },
+      "uri": "repository/org/scala-lang/modules/scala-xml_2.12/1.0.5/scala-xml_2.12-1.0.5.jar"
+    },
+    {
+      "artifactCoordinates": {
+        "groupId": "org.typelevel",
+        "artifactId": "spire_2.12",
+        "version": "0.14.1",
+        "type": "jar"
+      },
+      "uri": "repository/org/typelevel/spire_2.12/0.14.1/spire_2.12-0.14.1.jar"
+    },
+    {
+      "artifactCoordinates": {
+        "groupId": "org.typelevel",
+        "artifactId": "spire-macros_2.12",
+        "version": "0.14.1",
+        "type": "jar"
+      },
+      "uri": "repository/org/typelevel/spire-macros_2.12/0.14.1/spire-macros_2.12-0.14.1.jar"
+    },
+    {
+      "artifactCoordinates": {
+        "groupId": "org.typelevel",
+        "artifactId": "machinist_2.12",
+        "version": "0.6.1",
+        "type": "jar"
+      },
+      "uri": "repository/org/typelevel/machinist_2.12/0.6.1/machinist_2.12-0.6.1.jar"
+    },
+    {
+      "artifactCoordinates": {
+        "groupId": "org.typelevel",
+        "artifactId": "algebra_2.12",
+        "version": "0.7.0",
+        "type": "jar"
+      },
+      "uri": "repository/org/typelevel/algebra_2.12/0.7.0/algebra_2.12-0.7.0.jar"
+    },
+    {
+      "artifactCoordinates": {
+        "groupId": "org.typelevel",
+        "artifactId": "cats-kernel_2.12",
+        "version": "0.9.0",
+        "type": "jar"
+      },
+      "uri": "repository/org/typelevel/cats-kernel_2.12/0.9.0/cats-kernel_2.12-0.9.0.jar"
+    },
+    {
+      "artifactCoordinates": {
+        "groupId": "org.scala-lang.modules",
+        "artifactId": "scala-parser-combinators_2.12",
+        "version": "1.0.4",
+        "type": "jar"
+      },
+      "uri": "repository/org/scala-lang/modules/scala-parser-combinators_2.12/1.0.4/scala-parser-combinators_2.12-1.0.4.jar"
+    },
+    {
+      "artifactCoordinates": {
+        "groupId": "org.scala-lang",
+        "artifactId": "scala-compiler",
+        "version": "2.12.2",
+        "type": "jar"
+      },
+      "uri": "repository/org/scala-lang/scala-compiler/2.12.2/scala-compiler-2.12.2.jar"
+    },
+    {
+      "artifactCoordinates": {
+        "groupId": "org.mule.edi",
+        "artifactId": "schema-metadata",
+        "version": "2.1.1",
+        "type": "jar"
+      },
+      "uri": "repository/org/mule/edi/schema-metadata/2.1.1/schema-metadata-2.1.1.jar"
+    },
+    {
+      "artifactCoordinates": {
+        "groupId": "org.mule.runtime",
+        "artifactId": "mule-metadata-model-api",
+        "version": "1.1.0",
+        "type": "jar"
+      },
+      "uri": "repository/org/mule/runtime/mule-metadata-model-api/1.1.0/mule-metadata-model-api-1.1.0.jar"
+    },
+    {
+      "artifactCoordinates": {
+        "groupId": "org.apache.commons",
+        "artifactId": "commons-lang3",
+        "version": "3.4",
+        "type": "jar"
+      },
+      "uri": "repository/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar"
+    },
+    {
+      "artifactCoordinates": {
+        "groupId": "org.mule.runtime",
+        "artifactId": "api-annotations",
+        "version": "1.0.0",
+        "type": "jar"
+      },
+      "uri": "repository/org/mule/runtime/api-annotations/1.0.0/api-annotations-1.0.0.jar"
+    },
+    {
+      "artifactCoordinates": {
+        "groupId": "com.mulesoft.connectors",
+        "artifactId": "hl7-schemas",
+        "version": "4.0.0",
+        "type": "jar"
+      },
+      "uri": "repository/com/mulesoft/connectors/hl7-schemas/4.0.0/hl7-schemas-4.0.0.jar"
+    },
+    {
+      "artifactCoordinates": {
+        "groupId": "org.scala-lang",
+        "artifactId": "scala-library",
+        "version": "2.12.3",
+        "type": "jar"
+      },
+      "uri": "repository/org/scala-lang/scala-library/2.12.3/scala-library-2.12.3.jar"
+    },
+    {
+      "artifactCoordinates": {
+        "groupId": "com.mulesoft.connectors",
+        "artifactId": "mule-connector-commons",
+        "version": "1.2.0",
+        "type": "jar"
+      },
+      "uri": "repository/com/mulesoft/connectors/mule-connector-commons/1.2.0/mule-connector-commons-1.2.0.jar"
+    },
+    {
+      "artifactCoordinates": {
+        "groupId": "org.mule.connectors",
+        "artifactId": "atlantic-commons",
+        "version": "1.1.1",
+        "type": "jar"
+      },
+      "uri": "repository/org/mule/connectors/atlantic-commons/1.1.1/atlantic-commons-1.1.1.jar"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:hl7="http://www.mulesoft.org/schema/mule/hl7"
+	xmlns:mllp="http://www.mulesoft.org/schema/mule/mllp" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/mllp http://www.mulesoft.org/schema/mule/mllp/current/mule-mllp.xsd
+http://www.mulesoft.org/schema/mule/hl7 http://www.mulesoft.org/schema/mule/hl7/current/mule-hl7.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<mllp:request-config name="HL7_MLLP_Request_config" doc:name="HL7 MLLP Request config" doc:id="eea2b271-0fc8-4303-9ee2-2629df292946" >
+		<mllp:mllp-requester-connection host="localhost" port="62625" />
+	</mllp:request-config>
+	<hl7:config name="HL7_EDI_Config" doc:name="HL7 EDI Config" doc:id="1e09c810-09e2-4b24-b564-3e0070db3bc5">
+		<hl7:schemas >
+			<hl7:schema value="/hl7/v2_5_1/DFT_P03.esl" />
+		</hl7:schemas>
+	</hl7:config>
+	<mllp:mllp-listener-config name="HL7_MLLP_Mllp_listener_config" doc:name="HL7 MLLP Mllp listener config" doc:id="a87d710c-9e7e-4139-9466-2dd36f73e4c6" >
+		<mllp:mllp-listener-connection host="localhost" port="50610" delimiter='001C'/>
+	</mllp:mllp-listener-config>
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="c53d5080-7dab-46f6-a2af-ef6950eb61f9" basePath="/api">
+		<http:listener-connection host="0.0.0.0" port="8083" />
+	</http:listener-config>
+	<flow name="hl7-systemFlow" doc:id="32587fa8-8e23-4ad5-a154-7643df84bcb8" >
+		<http:listener doc:name="Listener" doc:id="c3aba98a-86dc-4c1b-b02d-ac1bdbb70795" config-ref="HTTP_Listener_config" path="/hl7testing"/>
+		<hl7:read doc:name="Read" doc:id="2854402d-2cae-460f-a886-073a7b750658" config-ref="HL7_EDI_Config"/>
+		<ee:transform doc:name="Transform Message" doc:id="d228aae3-29ac-4d0a-97b4-6f6b40d3dc07" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+[
+	{
+	
+	Name: "ACK",
+	MSH: payload.ACK.MSH."MSH-01",
+	Id: "ACK",
+	Data: {
+		ACK: payload.ACK
+	}
+}
+
+]]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="99d5a6ff-bc14-4261-9896-b0de55ee1c85" message="#[payload]"/>
+	</flow>
+</mule>
